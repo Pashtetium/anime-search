@@ -8,10 +8,13 @@ const cache = new InMemoryCache({
   typePolicies: {
     Query: {
       fields: {
-        Page: {
-          keyArgs: ['string'],
+        media: {
+          keyArgs: ['search'],
           // eslint-disable-next-line default-param-last
           merge(existing = [], incoming) {
+            console.log(existing)
+            console.log(incoming)
+
             return [...existing, ...incoming]
           },
         },
