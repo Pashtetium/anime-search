@@ -2,6 +2,7 @@
   "name": "anime-search",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pashtetium.github.io/anime-search",
   "dependencies": {
     "@apollo/client": "^3.6.6",
     "@testing-library/jest-dom": "^5.14.1",
