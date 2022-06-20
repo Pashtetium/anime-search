@@ -22,9 +22,9 @@ query ListOfAnime ($id: Int, $page: Int, $perPage: Int, $search: String) {
 }
 `
 // Начитался feature-sliced и решил сделать обертку
-const useGetSearchResults = (search: string, page: number, perPage = 3) => useLazyQuery(
+const useGetSearchResults = (search: string, perPage: number) => useLazyQuery(
   GET_SEARCH_RESULTS,
-  { variables: { search, page, perPage } },
+  { variables: { search, perPage } },
 )
 
 export default useGetSearchResults

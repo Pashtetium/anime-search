@@ -11,13 +11,13 @@ const { Title } = Typography
 
 function SearchPage() {
   const [searchQuery, setSearchQuery] = useState('')
-  const [page, setPage] = useState(1)
+  const [perPage, setPerPage] = useState(3)
 
   const debouncedSearchQuery = useDebounce(searchQuery, 400)
 
   const [fetchQuery, {
     data, loading, error, fetchMore,
-  }] = useGetSearchResults(debouncedSearchQuery, page)
+  }] = useGetSearchResults(debouncedSearchQuery, perPage)
 
   useEffect(() => {
     if (debouncedSearchQuery) {
@@ -26,11 +26,11 @@ function SearchPage() {
   }, [debouncedSearchQuery, fetchQuery])
 
   const handleLoadMore = () => {
-    setPage(page + 1)
+    setPerPage(perPage + 3)
 
     fetchMore({
       variables: {
-        page,
+        perPage,
       },
     })
   }
